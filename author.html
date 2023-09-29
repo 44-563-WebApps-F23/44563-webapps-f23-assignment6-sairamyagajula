@@ -28,12 +28,14 @@ function checkAuthor (){
     
     out = document.getElementById("result")
     if(hidden==guess){
-        good++;
+      
         alert('You got it right')
+        good++;
         out.innerHTML="Results: Good-"+good+", Oops-"+oops
     } else {
+     
+        alert('Sorry');
         oops++
-        alert('Sorry')
         out.innerHTML="Results: Good-"+good+",Oops-"+oops
     }
 }
