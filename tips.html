@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Tip Amounts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+      <style>
+        .form{
+            width: 50%;
+           margin-left: 20px;
+        }
+        .border{
+            border-radius: 50px 20px;
+        }
+    </style>
+ </head>
+<body>
+
+<h1>Sai Ramya Gajula shows tip amounts</h1>
+
+<div class="form">
+<label for="base_Amount">Enter base amount:</label>
+<input type="number" class="border" id="base_Amount" value="50">
+<br>
+<label for="tip_Percent">Enter the tip percent:</label>
+<input type="number" class="border" id="tip_Percent" value="15">
+<br><br>
+
+<input type="button" class="btn btn-danger" value="Show tip" onclick="calculateTips()">
+<br>
+
+<div id="results"></div>
+
+<script>
+    function calculateTips() {
+        const base_AmountInput = document.getElementById("base_Amount");
+        const tip_PercentInput = document.getElementById("tip_Percent");
+        const resultsDiv = document.getElementById("results");
+
+        const base_Amount = parseFloat(base_AmountInput.value);
+        const tip_Percent = parseFloat(tip_PercentInput.value);
+
+        let toShow = "Tips: ";
+
+        for (let a = 0; a < 5; a++) {
+            const calculatedTip = (base_Amount * (tip_Percent + a * 4)) / 100;
+            toShow += `${tip_Percent + a * 4}% is $${calculatedTip.toFixed(2)} <br/> `;
+        }
+
+        resultsDiv.innerHTML = toShow;
+    }
+</script>
+<form>
+    <div class="form-group">
+        <input class="form-check-input" type="radio" id="sum" value="sum" name="mathOperation"  onclick="chooseUp()"/>
+        <label for="sum">sum</label> 
+    </div>
+    <div class="form-group">
+        <input  class="form-check-input"  type="radio" id="difference" value="difference" name="mathOperation"  onclick="chooseUp()"/>
+        <label for="diff">diff</label>
+    </div>
+    <div class="form-group">
+        <input type="radio" id="product"  class="form-check-input" value="product" name="mathOperation"  onclick="chooseUp()"/>
+        <label for="mult">mult</label>
+    </div>
+</form>
+<p id="radioResult"></p>
+</div>
+
+<script> 
+function chooseUp(){
+let base_Amount = parseFloat(document.getElementById("base_Amount").value);
+let tip_Percent = parseFloat( document.getElementById("tip_Percent").value);
+let tipVal = parseFloat((base_Amount * tip_Percent)/100); 
+let operation = document.querySelector('input[name="mathOperation"]:checked').value;
+let outPut = "";
+switch (operation) {
+    case 'sum':
+        outPut = `The sum is ${base_Amount} + ${tipVal} = ${base_Amount + tipVal}`;
+        break;
+    case 'difference':
+        outPut = `The diff is ${base_Amount} - ${tipVal} = ${base_Amount - tipVal}`;
+        break;
+    case 'product': 
+        outPut = `The multiplication is ${base_Amount} * ${tipVal} = ${base_Amount * tipVal}`;
+}
+document.getElementById("radioResult").innerHTML = outPut;
+}
+function tips(){
+console.log("fdffd")
+let base_Amount = parseFloat(document.getElementById("base_Amount").value);
+let tip_Percent = parseFloat( document.getElementById("tip_Percent").value);
+let myOutput = "";
+for(let a=0 ; a<=5 ; a++){
+const calculateTip = base_Amount * (1 + (tip_Percent + a * 4) / 100);
+myOutput += `For <b>${tip_Percent + a * 4}%</b> percent the calculated tip is: <b>${calculateTip.toFixed(2) }</b><br/> `;
+}
+document.getElementById("tipsResult").innerHTML = myOutput;
+}
+</script>
+</div>
+</body>
+</html> 
