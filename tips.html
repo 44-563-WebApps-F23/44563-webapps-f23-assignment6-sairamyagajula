@@ -41,11 +41,11 @@
         const base_Amount = parseFloat(base_AmountInput.value);
         const tip_Percent = parseFloat(tip_PercentInput.value);
 
-        let toShow = "Tips: ";
+        let toShow = "Tips are: ";
 
         for (let a = 0; a < 5; a++) {
             const calculatedTip = (base_Amount * (tip_Percent + a * 4)) / 100;
-            toShow += `${tip_Percent + a * 4}% is $${calculatedTip.toFixed(2)} <br/> `;
+            toShow += `${tip_Percent + a * 4}% is $${calculatedTip.toFixed(2)} `;
         }
 
         resultsDiv.innerHTML = toShow;
@@ -77,13 +77,13 @@ let operation = document.querySelector('input[name="mathOperation"]:checked').va
 let outPut = "";
 switch (operation) {
     case 'sum':
-        outPut = `The sum is ${base_Amount} + ${tipVal} = ${base_Amount + tipVal}`;
+        outPut = `The sum of ${base_Amount} and ${tipVal} = ${base_Amount + tipVal}`;
         break;
     case 'difference':
-        outPut = `The diff is ${base_Amount} - ${tipVal} = ${base_Amount - tipVal}`;
+        outPut = `The difference of ${base_Amount} and ${tipVal} = ${base_Amount - tipVal}`;
         break;
     case 'product': 
-        outPut = `The multiplication is ${base_Amount} * ${tipVal} = ${base_Amount * tipVal}`;
+        outPut = `The multiplication of ${base_Amount} and ${tipVal} = ${base_Amount * tipVal}`;
 }
 document.getElementById("radioResult").innerHTML = outPut;
 }
