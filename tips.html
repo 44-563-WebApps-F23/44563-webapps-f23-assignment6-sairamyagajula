@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-    <title>Tip Amounts</title>
+    <title>Tips html page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -16,9 +16,6 @@
             width: 50%;
            margin-left: 20px;
         }
-        .border{
-            border-radius: 50px 20px;
-        }
     </style>
  </head>
 <body>
@@ -27,17 +24,14 @@
 
 <div class="form">
 <label for="base_Amount">Enter base amount:</label>
-<input type="number" class="border" id="base_Amount" value="50">
-<br>
+<input type="number" class="border border-primary" id="base_Amount" value="50">
+<br> <br>
 <label for="tip_Percent">Enter the tip percent:</label>
-<input type="number" class="border" id="tip_Percent" value="15">
+<input type="number" class="border border-primary" id="tip_Percent" value="15">
 <br><br>
-
 <input type="button" class="btn btn-danger" value="Show tip" onclick="calculateTips()">
-<br>
-
+<br><br>
 <div id="results"></div>
-
 <script>
     function calculateTips() {
         const base_AmountInput = document.getElementById("base_Amount");
