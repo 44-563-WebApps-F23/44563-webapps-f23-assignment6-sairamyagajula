@@ -16,8 +16,7 @@
         width: 100px;
         height: 100px;
         cursor: pointer;
-    }
-       
+    }      
         .container{
         width: 90%;
         margin: 0px auto;
@@ -25,7 +24,6 @@
     </style>
  </head>
 <body>
-
     <div class="container">
         <h1>Author entry Sai Ramya Gajula</h1>
         <form>
@@ -49,7 +47,6 @@
         </div>
     </body>
     <script>
-    
     var useImage = 1;
     function selectImage(){
         var img1 = document.getElementById("display");
@@ -68,8 +65,6 @@
             break;
         }
     }
-
-
     var good = 0;
     var oops = 0;
     function checkAuthor() {
@@ -86,12 +81,9 @@
         if (oops > 6 ) {
             let authButton = document.getElementById('authorBtn');
             authButton.onclick = errorMsg ;
-        }
-        
+        }        
         document.getElementById("goodCounter").innerHTML = `Good count : ${good}`;
-        document.getElementById("oopsCounter").innerHTML = `Opps count : ${oops}`;
-        
-      
+        document.getElementById("oopsCounter").innerHTML = `Opps count : ${oops}`;      
     }
     function errorMsg() {
         alert("Sorry, ran out of guesses");
