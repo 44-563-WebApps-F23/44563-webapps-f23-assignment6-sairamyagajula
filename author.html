@@ -65,5 +65,28 @@
             break;
         }
     }
+    var good = 0;
+    var oops = 0;
+    function checkAuthor() {
+        var authorPassword = document.getElementById("password").value;
+        var authorCheck = document.getElementById("guessAuthor").value;
+        if (authorPassword == authorCheck) {
+            good++;
+            alert("You got it right");
+        } else {
+            oops++;
+            alert("Sorry");  
+        }
+    
+        if (oops > 6 ) {
+            let authButton = document.getElementById('authorBtn');
+            authButton.onclick = errorMsg ;
+        }        
+        document.getElementById("goodCounter").innerHTML = `Good count : ${good}`;
+        document.getElementById("oopsCounter").innerHTML = `Opps count : ${oops}`;      
+    }
+    function errorMsg() {
+        alert("Sorry, ran out of guesses");
+    }
     </script>
 </html> 
